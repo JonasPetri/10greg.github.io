@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="1080px" width="1920px">
+  <defs>
+    <pattern id="doodad" width="25" height="25" viewBox="0 0 40 40" patternUnits="userSpaceOnUse" patternTransform="rotate(306)">
+      <rect width="100%" height="100%" fill="rgba(102, 93, 41, 1)"/>
+      <path d="M0 19h10v-20h-10zM20 19h10v-20h-10zM0 59h10v-20h-10zM20 59h10v-20h-10z " fill="rgba(30, 34, 41, 1)" filter="url(#filter-doodad-1)"/>
+      <path d="M10 20h10v-6h-10zM30 20h10v-6h-10z" fill="#795548"/>
+    </pattern>
+    <filter id="filter-doodad-1">
+      <feTurbulence baseFrequency="0.01 0.45" numOctaves="2" result="result1"/>
+      <feDisplacementMap in2="result1" scale="17" result="result2" xChannelSelector="R" yChannelSelector="G" in="SourceGraphic"/>
+      <feComposite in2="result2" in="SourceGraphic" operator="atop" result="compositeGraphic"/>
+      <feOffset in="compositeGraphic" result="fbSourceGraphic" dx="-1.7"/>
+    </filter>
+  </defs>
+  <rect fill="url(#doodad)" height="200%" width="200%"/>
+</svg>
