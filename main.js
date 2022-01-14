@@ -20,5 +20,5 @@ document.body.style.backgroundImage = "url(" + namer + ")";
 var button = document.getElementById("share")
 button.addEventListener("click", share)
 function share() {
-    navigator.clipboard.writeText('http://127.0.0.1:5000/?id=' + id)
+    navigator.clipboard.writeText('jonaspetri.github.io/?id=' + id)
 }
