@@ -1,23 +1,24 @@
-var url = "https://quotes.rest/qod?language=en";
-url = "https://type.fit/api/quotes";
-async function request(url) {
-    var response = await fetch(url)
-    .then(response => response.text(response) );
-    response = String(response);
-    response = response.replace(/\n/g, ' ');
-    response = JSON.parse(response);
-    length = response.length;
-    var random = Math.floor(Math.random() * length);
-    var text = response[random].text;
-    var author = response[random].author;
-    console.log(text);
-    console.log(author);
-    if (author == null) {
-        author = "someone"
-    }
+const length = 1643
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+if ("id" in params) {
+    var id = params.id
+} else {
+    var id = Math.floor(Math.random() * length);
+}
+async function loadFile() {
+    var response = await fetch("static/js/quotes.json");
+    var data = await response.json();
+    var text = data[id].text;
+    var author = data[id].author;
     document.getElementById("name").innerHTML = "Like " + author + " said,";
     document.getElementById("text").innerHTML = '"' + text + '"';
 }
-request(url);
+loadFile()
 var namer = String(Math.floor(Math.random() * 5) + 1) + ".svg";
-document.body.style.backgroundImage = "url(" + namer + ")";
+document.body.style.backgroundImage = "url(static/img/" + namer + ")";
+var button = document.getElementById("share")
+button.addEventListener("click", share)
+function share() {
+    navigator.clipboard.writeText('http://127.0.0.1:5000/?id=' + id)
+}
