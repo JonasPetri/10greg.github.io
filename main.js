@@ -11,6 +11,7 @@ async function loadFile() {
     var data = await response.json();
     var text = data[id].text;
     var author = data[id].author;
+    if (author === null) {author = "someone"}
     document.getElementById("name").innerHTML = "Like " + author + " said,";
     document.getElementById("text").innerHTML = '"' + text + '"';
 }
