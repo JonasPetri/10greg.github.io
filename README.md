@@ -2,7 +2,7 @@
 
 This is a small web page that shows you a random inspiring quote from the [type.fit](https://type.fit/api/quotes) API. You can share quotes that you really liked with others with the share button.
 
-[Here's the link](https://jonas-quotes.surge.sh)
+[Here's the link](https://jonas-quotes.netlify.app/)
 
 ## Credits
 
